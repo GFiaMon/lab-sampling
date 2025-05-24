@@ -1,64 +1,130 @@
-# LAB Deliverables: Consumer Preferences Study  
-**Topic**: Study Habits Analysis  
+# Study Habits Analysis Report
+
+## 📋 Methodology
+
+### Survey Questions & Response Options
+
+#### 1. What is your age group? (Optional)
+- Under 25  
+- 25–29  
+- 30–34  
+- 35–39  
+- 40–44  
+- 45+  
+
+![Age Distribution](./visuals/age.png)
 
 ---
 
-## 1. Introduction  
-**Research Question**:  
-*How do students allocate time for lab work, and do they feel existing lab hours are sufficient?*  
+#### 2. What is your current level of education? (Optional)
+- Undergraduate student  
+- Graduate student  
+- Other (e.g., vocational training)  
 
-**Population of Interest**:  
-- Students enrolled in technical courses (synthetic + real data).  
-
-**Sampling Method**:  
-- **Convenience sampling** (initial 5 responses) + **synthetic data** (45 responses) to simulate a larger dataset.  
-- **Justification**: Quick data collection under time constraints, though acknowledging potential bias.  
+![Education Levels](./visuals/education.png)
 
 ---
 
-## 2. Methodology  
-**Data Collection**:  
-- **Tool**: Google Forms survey with 10 questions (e.g., study hours, lab scheduling preferences).  
-- **Sample Size**: 50 participants (5 real + 45 synthetic).  
-- **Variables**: Categorical (e.g., "Yes/No", time ranges).  
+#### 3. Do you usually start lab work before the class ends at 12:30?
+- Yes  
+- No  
+- Sometimes  
 
-**Analysis Tools**:  
-- Python (Pandas, Matplotlib/Seaborn) for data cleaning, visualization, and statistical calculations.  
+![Lab Start Times](./visuals/start-lab-before-class.png)
 
 ---
 
-## 3. Results  
-### Key Findings  
-1. **Time Allocation**:  
-   - 62% of students reported needing **more time than allocated lab hours** (95% CI: 48%–76%).  
-   - ![](./images/time_needed_plot.png) <!-- Include your actual plot path -->  
+#### 4. Do you only work on labs during scheduled hours (12:30–16:30)?
+- Yes  
+- No  
+- Sometimes  
 
-2. **Work Patterns**:  
-   - 58% start labs **before class ends**, while 32% work **late at night**.  
-
-3. **Lunch Breaks**:  
-   - 65% take breaks of **15–30 minutes**.  
+![Scheduled Hours Work](./visuals/work-during-lab-hours.png)
 
 ---
 
-## 4. Sampling Error Analysis  
-### Identified Errors  
-1. **Small Sample Size**:  
-   - Initial 5 responses had a **margin of error ±70%** (n=5).  
-   - Expanded dataset (n=50) reduced error to **±14%**, but still significant.  
+#### 5. How much extra time do you spend on labs weekly?
+- None  
+- Less than 2 hours  
+- 2–4 hours  
+- 5–7 hours  
+- 8–10 hours  
+- More than 10 hours  
 
-2. **Convenience Bias**:  
-   - Over-representation of students from similar courses/years.  
+![Extra Time Spent](./visuals/extra-time.png)
 
-3. **Self-Reporting Bias**:  
-   - Subjective estimates of study hours (e.g., rounding errors).  
+---
 
-### Margin of Error Calculation  
-For the key question *"Do you need more time?"*:  
-- **Proportion (p)**: 62%  
-- **Sample Size (n)**: 50  
-- **Margin of Error**: ±14.2%  
-- **Formula**:  
-  ```python
-  E = 1.96 * sqrt((p * (1 - p)) / n)
-  ```
+#### 6. When do you work outside scheduled hours? (Multiple Select)
+- Before class  
+- Evenings  
+- Late at night  
+- Weekends  
+- Only during lab hours  
+
+![Off-Hours Work Patterns](./visuals/outside-hours-times.png)
+
+---
+
+#### 7. Do you take a lunch break between class and lab?
+- Yes  
+- No  
+- Depends on the day  
+
+![Lunch Breaks](./visuals/lunch-break.png)
+
+---
+
+#### 8. Lunch break duration (if yes)
+- <15 minutes  
+- 15–30 minutes  
+- 30–60 minutes  
+- >1 hour  
+
+![Break Duration](./visuals/lunch-duration.png)
+
+---
+
+#### 9. Do you need more time than allocated?
+- Yes  
+- No  
+- Not sure  
+
+![Time Need](./visuals/need-more-time.png)
+
+---
+
+#### 10. Do you start labs before topics are covered?
+- Yes  
+- No  
+- Sometimes  
+- Wait until explained  
+
+![Early Start](./visuals/start-before-topic-covered.png)
+
+---
+
+## 📊 Statistical Analysis
+
+### Key Metric: Need for More Time
+**Proportion**: 66.00%  
+**95% Confidence Interval**: [52.87%, 79.13%]  
+**Margin of Error**: ±13.13%  
+
+![Proportion with CI](./visuals/proportion_ci.png)
+
+```python
+# Margin of Error Calculation
+n = 50
+p = 0.66
+z = 1.96  # 95% confidence
+se = (p * (1 - p) / n) ** 0.5  # Standard Error
+margin_error = z * se
+print(f"CI: [{p - margin_error:.2%}, {p + margin_error:.2%}]")
+```
+
+## 🧠 Key Insights
+1. **Time Pressure**: 66% feel lab hours are insufficient (±13% margin)
+2. **Reliability**: Current sample (n=50) needs expansion to 361 for ±5% accuracy
+3. **Decision Risk**: True proportion could be as low as 53% or high as 79%
+
