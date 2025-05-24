@@ -1,3 +1,73 @@
+---
+
+# Study Habits Analysis Lab Report  
+**Author**: [Guillermo Fiallo Montero]  
+**Course**: [Data Science - Statistics]  
+
+---
+
+## 🎯 Lab Objective  
+This project fulfills the *"Sampling and Sampling Error: Consumer Preferences Study"* lab requirement. The goal was to:  
+- Practice **sampling techniques** (convenience, synthetic augmentation)  
+- Analyze **sampling errors** and their impact on data reliability  
+- Demonstrate **data storytelling** with Python visualization tools  
+
+---
+
+## 📝 Methodology  
+
+### 1. Survey Design & Data Collection  
+- **Real Participants**: Collected 5 responses via Google Forms (time constraints limited participation)  
+- **Synthetic Augmentation**: Generated 45 additional responses using:  
+  ```python
+  # Synthetic data generation snippet
+  synthetic_data = generate_responses(n=45, demographic_profiles=real_data)
+  ```  
+  *Why?* To simulate a larger dataset (n=50) while maintaining proportional distributions.  
+
+### 2. Sampling Approach  
+- **Primary Method**: Convenience sampling (accessible classmates)  
+- **Synthetic Strategy**: Stratified sampling based on age/education patterns from real data  
+
+### 3. Tools & Workflow  
+1. **Survey Creation**: Google Forms
+2. **Data Analysis**:  
+   - Python (Pandas for cleaning, Matplotlib/Seaborn for visuals)  
+   - Statistical calculations (confidence intervals, margin of error)  
+3. **Collaboration**: Worked with AI tutor to:  
+   - Debug plotting issues (empty PNG exports)  
+   - Refine sampling error explanations  
+
+---
+
+## 🔄 Key Challenges & Solutions  
+
+| Challenge | Solution |  
+|-----------|----------|  
+| Limited real responses (n=5) | Augmented with synthetic data (n=45) |  
+| Wide confidence intervals (±13%) | Documented as key learning point |  
+| Plot export issues | Fixed save/show order in matplotlib |  
+
+---
+
+## 🔍 Key Learnings  
+1. **Sampling Tradeoffs**:  
+   - Convenience sampling enabled rapid data collection but introduced age/education bias  
+   - Synthetic data helped practice analysis but may not reflect real-world complexity  
+
+2. **Error Awareness**:  
+   ```python
+   # n=50 vs required n=361 for ±5% accuracy
+   print(f"Current sample covers only {50/361:.1%} of ideal size")
+   ```  
+
+3. **Technical Skills**:  
+   - Automated plot exports to PNG  
+   - Dynamic report generation with Markdown  
+
+---
+
+
 # Study Habits Analysis Report
 
 ## 📋 Methodology
